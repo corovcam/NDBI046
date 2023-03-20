@@ -47,3 +47,31 @@ Scripts and Datasets are located in the [1-Data-Cube](1-Data-Cube) directory.
 3. [integrity-constraints.py](1-Data-Cube/integrity-constraints.py)
     - Script uses pre-generated *care-providers.ttl* and *population-2021.ttl* RDF files to validate Data Cubes
     - If all tests "IC1" to "IC21" pass (returns *false*), then the respective Data Cube is valid
+
+
+## 2. Assignment: Apache Airflow
+
+Assignment specification: https://skoda.projekty.ms.mff.cuni.cz/ndbi046/seminars/03-airflow.html#/1/1
+All generated *Data Cubes* are left unchaged from the [1. Assignment](#1-assignment-data-cubes).
+
+#### System Requirements
+- Docker (at least 4GB of memory)
+- Docker Compose v1.29.1 or newer
+- Modules (installed automatically with docker compose; declared in [requirements.txt](2-Apache-Airflow/airflow/requirements.txt)):
+  - [Pandas](https://pandas.pydata.org/) (for .csv transformation)
+  - [NumPy](https://numpy.org/doc/stable/)
+  - [RDFLib](https://rdflib.readthedocs.io/en/stable/index.html)
+  - [Requests](https://requests.readthedocs.io/en/latest/)
+
+#### Installation & Instructions
+1. Clone the repository
+2. Navigate to "2-Apache-Airflow/airflow/" directory
+3. Run `docker compose up --build`
+4. Check out: [Apache Airflow - Docker Compose tutorial](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) - all default settings are left unchanged
+  - Only custom *requirements.txt" are set - check out: [Apache Airflow - adding dependencies to image](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#special-case-adding-dependencies-via-requirements-txt-file)
+5. Check out the local Airflow WebServer using [http://localhost:8080/dags/data-cubes/](http://localhost:8080/dags/data-cubes/) and run the *DAG with Config* with "output_path" JSON parameter set to absolute path in linux filesystem (e.g. `{"output_path": "/opt/airflow/dags/"}`)
+6. Run `docker compose down --volumes --rmi all` to stop and delete containers, delete volumes with database data and download images. (redownloads images at next `docker compose up --build`)
+
+#### Scripts Information
+
+DAGs are located in the [2-Apache-Airflow/airflow/](2-Apache-Airflow/airflow/dags) directory. Scripts to generate Data Cubes are the same as in the [1. Assignment](#1-assignment-data-cubes). The only thing changed is the custom *output_path* for .ttl files.
