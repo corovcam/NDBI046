@@ -81,7 +81,7 @@ def create_activities(collector: Graph):
     
 
 def create_auxiliary_resources(collector: Graph):
-    # Locations of data sources
+    # Locations of data sources - expects care_providers.py and data to be in the same directory
     collector.add((URIRef("file://care_providers.py"), RDF.type, PROV.Location))
     
     # Roles

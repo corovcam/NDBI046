@@ -52,7 +52,8 @@ Scripts and Datasets are located in the [1-Data-Cube](1-Data-Cube) directory.
 ## 2. Assignment: Apache Airflow
 
 Assignment specification: https://skoda.projekty.ms.mff.cuni.cz/ndbi046/seminars/03-airflow.html#/1/1
-All generated *Data Cubes* are left unchaged from the [1. Assignment](#1-assignment-data-cubes).
+
+All generated *Data Cubes* are left unchanged from the [1. Assignment](#1-assignment-data-cubes).
 
 #### System Requirements
 - Docker (at least 4GB of memory)
@@ -75,3 +76,30 @@ All generated *Data Cubes* are left unchaged from the [1. Assignment](#1-assignm
 #### Scripts Information
 
 DAGs are located in the [2-Apache-Airflow/airflow/](2-Apache-Airflow/airflow/dags) directory. Scripts to generate Data Cubes are the same as in the [1. Assignment](#1-assignment-data-cubes). The only thing changed is the custom *output_path* for .ttl files.
+
+
+## 3. Assignment: Provenance
+
+Assignment specification: https://skoda.projekty.ms.mff.cuni.cz/ndbi046/seminars/04-provenance.html#/1/1
+
+All generated *Data Cubes* are left unchanged from the [1. Assignment](#1-assignment-data-cubes).
+
+#### System Requirements
+- Python 3 (tested using Python 3.10.*)
+- Modules (declared in [requirements.txt](3-Provenance/requirements.txt)):
+  - [RDFLib](https://rdflib.readthedocs.io/en/stable/index.html)
+
+#### Installation & Instructions
+1. Clone the repository
+2. Navigate to "3-Provenance/" directory
+3. Install dependencies using `pip install -r requirements.txt`
+4. Run respective RDF TriG generation scripts using `python3 care_providers_prov.py` and `python3 population_2021_prov.py`
+    - Check generated *care-providers-prov.trig* and *population-2021-prov.trig*
+5. If you want the respective .ttl data cube files in the same directory, generate them using [1. Assignment](#1-assignment-data-cubes) and move them to the same directory as the .trig files
+
+#### Scripts Information
+
+1. [care_providers_prov.py](3-Provenance/care_providers_prov.py)
+    - Script uses the [PROV](https://www.w3.org/TR/prov-overview/) ontology to generate a [RDF TriG](https://www.w3.org/TR/trig/) file with provenance information describing the data transformation from the [original .csv file](1-Data-Cube/care-providers/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv) to the [generated .ttl file](1-Data-Cube/care-providers.ttl)
+2. [population_2021_prov.py](3-Provenance/population_2021_prov.py)
+    - Script uses the [PROV](https://www.w3.org/TR/prov-overview/) ontology to generate a [RDF TriG](https://www.w3.org/TR/trig/) file with provenance information describing the data transformation from the [original .csv file](1-Data-Cube/population-2021/130141-22data2021.csv) to the [generated .ttl file](1-Data-Cube/population-2021.ttl)

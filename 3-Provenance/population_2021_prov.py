@@ -109,7 +109,7 @@ def create_activities(collector: Graph):
     
 
 def create_auxiliary_resources(collector: Graph):
-    # Locations of data sources
+    # Locations of data sources - expects population_2021.py and data to be in the same directory
     collector.add((URIRef("file://population_2021.py"), RDF.type, PROV.Location))
     
     # Roles
