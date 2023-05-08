@@ -111,9 +111,11 @@ Assignment specification: https://skoda.projekty.ms.mff.cuni.cz/ndbi046/seminars
 
 Generated *Population 2021 Data Cube* is left unchanged from the [1. Assignment](#1-assignment-data-cubes), except that the Region/County Codelist is extracted to a separate file.
 
+(The generated RDF Turtle files are also uploaded for convenience.)
+
 #### System Requirements
 - Python 3 (tested using Python 3.10.11)
-- Modules (declared in [requirements.txt](1-Data-Cube/requirements.txt)):
+- Modules (declared in [requirements.txt](4-Metadata/requirements.txt)):
   - [Pandas](https://pandas.pydata.org/) (for .csv transformation)
   - [NumPy](https://numpy.org/doc/stable/)
   - [RDFLib](https://rdflib.readthedocs.io/en/stable/index.html)
