@@ -50,8 +50,8 @@ def create_distribution(g: Graph):
     g.add((distribution, RDF.type, DCAT.Distribution))
     g.add((distribution, DCTERMS.title, Literal("RDF Turtle distribution of Mean Population per County 2021 dataset", lang="en")))
     g.add((distribution, DCTERMS.title, Literal("RDF Turtle distribuce datasetu Střední stav obyvatel v Okresech 2021", lang="cs")))
-    g.add((distribution, DCAT.downloadURL, Literal("https://raw.githubusercontent.com/corovcam/ndbi046/main/5-Metadata/population.ttl", datatype=XSD.anyURI)))
-    g.add((distribution, DCAT.accessURL, Literal("https://raw.githubusercontent.com/corovcam/ndbi046/main/5-Metadata/population.ttl", datatype=XSD.anyURI)))
+    g.add((distribution, DCAT.downloadURL, Literal("https://media.githubusercontent.com/media/corovcam/NDBI046/main/4-Metadata/population.ttl", datatype=XSD.anyURI)))
+    g.add((distribution, DCAT.accessURL, Literal("https://media.githubusercontent.com/media/corovcam/NDBI046/main/4-Metadata/population.ttl", datatype=XSD.anyURI)))
     g.add((distribution, DCAT.mediaType, URIRef("https://www.iana.org/assignments/media-types/text/turtle")))
     g.add((distribution, DCTERMS.format, EUA["file-type/RDF_TURTLE"]))
 
