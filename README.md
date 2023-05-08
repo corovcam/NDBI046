@@ -103,3 +103,31 @@ All generated *Data Cubes* are left unchanged from the [1. Assignment](#1-assign
     - Script uses the [PROV](https://www.w3.org/TR/prov-overview/) ontology to generate a [RDF TriG](https://www.w3.org/TR/trig/) file with provenance information describing the data transformation from the [original .csv file](1-Data-Cube/care-providers/narodni-registr-poskytovatelu-zdravotnich-sluzeb.csv) to the [generated .ttl file](1-Data-Cube/care-providers.ttl)
 2. [population_2021_prov.py](3-Provenance/population_2021_prov.py)
     - Script uses the [PROV](https://www.w3.org/TR/prov-overview/) ontology to generate a [RDF TriG](https://www.w3.org/TR/trig/) file with provenance information describing the data transformation from the [original .csv file](1-Data-Cube/population-2021/130141-22data2021.csv) to the [generated .ttl file](1-Data-Cube/population-2021.ttl)
+
+
+## 4. Assignment: Dataset Metadata
+
+Assignment specification: https://skoda.projekty.ms.mff.cuni.cz/ndbi046/seminars/05-vocabulary.html#/1
+
+Generated *Population 2021 Data Cube* is left unchanged from the [1. Assignment](#1-assignment-data-cubes), except that the Region/County Codelist is extracted to a separate file.
+
+#### System Requirements
+- Python 3 (tested using Python 3.10.11)
+- Modules (declared in [requirements.txt](1-Data-Cube/requirements.txt)):
+  - [Pandas](https://pandas.pydata.org/) (for .csv transformation)
+  - [NumPy](https://numpy.org/doc/stable/)
+  - [RDFLib](https://rdflib.readthedocs.io/en/stable/index.html)
+
+#### Installation & Instructions
+1. Clone the repository
+2. Navigate to [4-Metadata/](4-Metadata/) directory
+3. Install dependencies using `pip install -r requirements.txt`
+4. Run `python3 dataset_entry.py`
+5. Check generated *population.ttl* (Data Cube file), *region-county-codelist.ttl* and *population-dataset-entry.ttl* files
+
+#### Script Information
+
+1. [dataset_entry.py](4-Metadata/dataset_entry.py)
+    - Script uses the [DCAT](https://www.w3.org/TR/vocab-dcat-2/) ontology to generate a [RDF Turtle](https://www.w3.org/TR/turtle/) file with metadata describing the Population 2021 Data Cube
+    - The script also generates a separate file with the Region/County Codelist
+    - The script also generates a separate file with the original Population 2021 Data Cube
