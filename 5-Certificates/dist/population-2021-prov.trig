@@ -1,0 +1,73 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+_:Nce684fcfb1d94a7bb677e391e09f30b7 {
+    <https://ndbi046-martincorovcak.com/resources/MeanPopulation2021> a prov:Entity ;
+        prov:wasAttributedTo <https://ndbi046-martincorovcak.com/provenance#Population2021ETLScript> ;
+        prov:wasDerivedFrom <https://ndbi046-martincorovcak.com/provenance#Population2021Dataset> ;
+        prov:wasGeneratedBy <https://ndbi046-martincorovcak.com/provenance#Population2021CubeCreationActivity> .
+
+    <file://population_2021.py> a prov:Location .
+
+    <https://ndbi046-martincorovcak.com/provenance#MFF_UK> a prov:Agent,
+            foaf:Organization ;
+        foaf:name "Matematicko-fyzikální fakulta, Univerzita Karlova"@cs ;
+        foaf:schoolHomepage "https://www.mff.cuni.cz/"^^xsd:anyURI .
+
+    <https://ndbi046-martincorovcak.com/provenance#MinistryOfHealthCR> a prov:Agent,
+            foaf:Organization ;
+        foaf:homepage "https://www.mzcr.cz/"^^xsd:anyURI ;
+        foaf:name "Ministerstvo zdravotnictví ČR"@cs .
+
+    <https://ndbi046-martincorovcak.com/provenance#PetrSkoda> a prov:Agent,
+            foaf:Person ;
+        prov:actedOnBehalfOf <https://ndbi046-martincorovcak.com/provenance#MFF_UK> ;
+        foaf:mbox <mailto:petr.skoda@matfyz.cuni.cz> ;
+        foaf:name "Mgr. Petr Škoda, Ph.D."@cs .
+
+    <https://ndbi046-martincorovcak.com/provenance#Population2021CubeCreationActivity> a prov:Activity ;
+        prov:endedAtTime "2023-03-28T12:05:00"^^xsd:dateTime ;
+        prov:qualifiedUsage [ a prov:Usage ;
+                prov:entity <https://ndbi046-martincorovcak.com/provenance#CareProvidersDataset> ;
+                prov:hadRole <https://ndbi046-martincorovcak.com/provenance#ETLRole> ],
+            [ a prov:Usage ;
+                prov:entity <https://ndbi046-martincorovcak.com/provenance#Population2021Dataset> ;
+                prov:hadRole <https://ndbi046-martincorovcak.com/provenance#ETLRole> ],
+            [ a prov:Usage ;
+                prov:entity <https://ndbi046-martincorovcak.com/provenance#CountyCodelistMap> ;
+                prov:hadRole <https://ndbi046-martincorovcak.com/provenance#ETLRole> ] ;
+        prov:startedAtTime "2023-03-28T12:00:00"^^xsd:dateTime ;
+        prov:used <https://ndbi046-martincorovcak.com/provenance#CareProvidersDataset>,
+            <https://ndbi046-martincorovcak.com/provenance#CountyCodelistMap>,
+            <https://ndbi046-martincorovcak.com/provenance#Population2021Dataset> ;
+        prov:wasAssociatedWith <https://ndbi046-martincorovcak.com/provenance#MartinCorovcak> .
+
+    <https://ndbi046-martincorovcak.com/provenance#Population2021ETLScript> a prov:SoftwareAgent ;
+        prov:actedOnBehalfOf <https://ndbi046-martincorovcak.com/provenance#MartinCorovcak> ;
+        prov:atLocation <file://population_2021.py> .
+
+    <https://ndbi046-martincorovcak.com/provenance#CareProvidersDataset> a prov:Entity ;
+        prov:wasAttributedTo <https://ndbi046-martincorovcak.com/provenance#MinistryOfHealthCR> .
+
+    <https://ndbi046-martincorovcak.com/provenance#CountyCodelistMap> a prov:Entity ;
+        prov:wasAttributedTo <https://ndbi046-martincorovcak.com/provenance#CzechStatisticalOffice> .
+
+    <https://ndbi046-martincorovcak.com/provenance#CzechStatisticalOffice> a prov:Agent,
+            foaf:Organization ;
+        foaf:homepage "https://www.czso.cz/"^^xsd:anyURI ;
+        foaf:name "Český statistický úřad"@cs .
+
+    <https://ndbi046-martincorovcak.com/provenance#MartinCorovcak> a prov:Agent,
+            foaf:Person ;
+        prov:actedOnBehalfOf <https://ndbi046-martincorovcak.com/provenance#PetrSkoda> ;
+        foaf:homepage "https://github.com/corovcam"^^xsd:anyURI ;
+        foaf:mbox <mailto:martino.coro@gmail.com> ;
+        foaf:name "Martin Čorovčák"@sk .
+
+    <https://ndbi046-martincorovcak.com/provenance#ETLRole> a prov:Role .
+
+    <https://ndbi046-martincorovcak.com/provenance#Population2021Dataset> a prov:Entity ;
+        prov:wasAttributedTo <https://ndbi046-martincorovcak.com/provenance#CzechStatisticalOffice> .
+}
+
