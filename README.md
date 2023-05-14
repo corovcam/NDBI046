@@ -133,3 +133,10 @@ Generated *Population 2021 Data Cube* is left unchanged from the [1. Assignment]
     - Script uses the [DCAT](https://www.w3.org/TR/vocab-dcat-2/) ontology to generate a [RDF Turtle](https://www.w3.org/TR/turtle/) file with metadata describing the Population 2021 Data Cube
     - The script also generates a separate file with the Region/County Codelist
     - The script also generates a separate file with the original Population 2021 Data Cube
+
+
+## 5. Assignment: Certification
+
+Assignment specification: https://skoda.projekty.ms.mff.cuni.cz/ndbi046/seminars/06-public.html#/2/1
+
+Check out Github Pages deployment: https://corovcam.github.io/NDBI046/
