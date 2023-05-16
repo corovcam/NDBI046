@@ -11,8 +11,8 @@
 1. [Population 2021 Codelist](https://media.githubusercontent.com/media/corovcam/NDBI046/main/docs/region-county-codelist.ttl)
 
 ### Provenance
-1. [Population 2021 Provenance](population-2021-prov.trig)
-2. [Care Providers Provenance](care-providers-prov.trig)
+1. [Population 2021 Provenance](https://media.githubusercontent.com/media/corovcam/NDBI046/main/docs/population-2021-prov.trig)
+2. [Care Providers Provenance](https://media.githubusercontent.com/media/corovcam/NDBI046/main/docs/care-providers-prov.trig)
 
 ### Certificates & Signed Data
 1. [Certificate](certificate.crt)
