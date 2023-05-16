@@ -72,6 +72,14 @@ def create_concept_schemes(collector: Graph):
 
 
 def create_resource_classes(collector: Graph):
+    country = NSR.Country
+    collector.add((country, RDF.type, RDFS.Class))
+    collector.add((country, RDF.type, OWL.Class))
+    collector.add((country, RDFS.label, Literal("Krajina", lang="cs")))
+    collector.add((country, RDFS.label, Literal("Country", lang="en")))
+    collector.add((country, SKOS.prefLabel, Literal("Krajina", lang="cs")))
+    collector.add((country, SKOS.prefLabel, Literal("Country", lang="en")))
+    
     county = NSR.County
     collector.add((county, RDF.type, RDFS.Class))
     collector.add((county, RDF.type, OWL.Class))
@@ -80,6 +88,7 @@ def create_resource_classes(collector: Graph):
     collector.add((county, SKOS.prefLabel, Literal("Okres", lang="cs")))
     collector.add((county, SKOS.prefLabel, Literal("County", lang="en")))
     collector.add((county, RDFS.seeAlso, NSR.county))
+    collector.add((county, RDFS.subClassOf, country))
     
     region = NSR.Region
     collector.add((region, RDF.type, RDFS.Class))
@@ -89,6 +98,7 @@ def create_resource_classes(collector: Graph):
     collector.add((region, SKOS.prefLabel, Literal("Kraj", lang="cs")))
     collector.add((region, SKOS.prefLabel, Literal("Region", lang="en")))
     collector.add((region, RDFS.seeAlso, NSR.region))
+    collector.add((region, RDFS.subClassOf, country))
 
 
 def create_resources(collector: Graph, data: pd.DataFrame):
@@ -102,6 +112,7 @@ def create_resources(collector: Graph, data: pd.DataFrame):
         collector.add((county, SKOS.inScheme, NSR.county))
         collector.add((county, SKOS.inScheme, SDMX_CODE.area))
         collector.add((county, SKOS.notation, Literal(c["okres_lau"])))
+        collector.add((county, SKOS.narrowMatch, NSR[f"region/{c['kraj_kod']}"]))
     
     regions = data.drop_duplicates("kraj_kod")
     for _, r in regions.iterrows():
